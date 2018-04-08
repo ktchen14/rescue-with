@@ -21,6 +21,12 @@ gem install rescue-with
 
 ## Usage
 
+To use this gem required it with:
+
+```ruby
+require 'rescue-with'
+```
+
 This gem adds the syntax:
 
 ```ruby
