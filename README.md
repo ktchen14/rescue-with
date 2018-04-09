@@ -48,12 +48,16 @@ Output an error message to `stderr` if a file can't be read:
 data = File.read('none') rescue Errno::ENOENT.with { $stderr.puts('No data') }
 ```
 
-## Caveat
+## Caveats
 
 Because the modifier form of `rescue` only rescues from `StandardError` this
 syntax only works if `StandardError` is an ancestor of `ExceptionType`. This
 shouldn't be a problem most of the time as `Exception`s that aren't a subclass
 of `StandardError` are rarely rescued.
+
+Note that `StandardError#with` only rescues a single type of exception. If you
+need to rescue multiple types of exceptions it's much better to use the `begin
+... rescue ... end` syntax.
 
 ## License
 
